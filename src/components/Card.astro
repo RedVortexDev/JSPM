@@ -3,61 +3,30 @@ export interface Props {
 	title: string;
 	body: string;
 	href: string;
+	type: string;
 }
 
-const { href, title, body } = Astro.props;
+const { href, title, body, type } = Astro.props;
 ---
 
-<li class="link-card">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
-	</a>
-</li>
-<style>
-	.link-card {
-		list-style: none;
-		display: flex;
-		padding: 0.25rem;
-		background-color: white;
-		background-image: none;
-		background-size: 400%;
-		border-radius: 0.6rem;
-		background-position: 100%;
-		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-	}
+<div class="w-full sm:w-1/2 md:w-1/4 flex flex-col p-3 cursor-pointer">
+	<div
+		class="dark:bg-slate-600 bg-slate-100 rounded-lg shadow-lg overflow-hidden flex-1 flex flex-col"
+	>
+		<div class="p-4 flex-1 flex flex-col" style="
+">
+			<h1 class="mb-2 text-md font-bold">{title}</h1>
+			<div class="mb-4 text-grey-darker text-sm flex-1">
+				<p>{body}</p>
+			</div>
 
-	.link-card > a {
-		width: 100%;
-		text-decoration: none;
-		line-height: 1.4;
-		padding: 1rem 1.3rem;
-		border-radius: 0.35rem;
-		color: #111;
-		background-color: white;
-		opacity: 0.8;
-	}
-	h2 {
-		margin: 0;
-		font-size: 1.25rem;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-	p {
-		margin-top: 0.5rem;
-		margin-bottom: 0;
-		color: #444;
-	}
-	.link-card:is(:hover, :focus-within) {
-		background-position: 0;
-		background-image: var(--accent-gradient);
-	}
-	.link-card:is(:hover, :focus-within) h2 {
-		color: rgb(var(--accent));
-	}
-</style>
+			<div class="flex flex-wrap space-x-2">
+				<span
+					class="px-4 py-2 rounded-full text-gray-500 bg-gray-200 font-semibold text-sm flex align-center w-max cursor-pointer active:bg-gray-300 transition duration-300 ease"
+				>
+					Text
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
