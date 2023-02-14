@@ -1,6 +1,10 @@
-type ScriptType =
-	| "library"
-	| "feature"
-	;
+import z from "zod";
 
-export default ScriptType;
+export type ScriptType = z.TypeOf<ReturnType<typeof scriptTypeSchema>>;
+
+const scriptTypeSchema = () => z.union([
+	z.literal("library"),
+	z.literal("feature")
+]);
+
+export default scriptTypeSchema;
