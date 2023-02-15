@@ -2,29 +2,60 @@
 import Layout from "../layouts/Layout.astro";
 import ScriptCard from "../components/ScriptCard";
 import CardContainer from "../components/CardContainer.astro";
+import SearchBar from "../components/SearchBar";
+
+const scripts = [
+	[
+		"ConfigLib",
+		"A simple library for creating a .json config file for your script.",
+		"configLib",
+	],
+	["/shrug", "Adds a /shrug <msg> command ¯_(ツ)_/¯", "shrug"],
+
+	["Test #" + Math.floor(Math.random() * 69), "its a test", "test"],
+	["Test #" + Math.floor(Math.random() * 69), "its a test", "test"],
+	["Test #" + Math.floor(Math.random() * 69), "its a test", "test"],
+	["Test #" + Math.floor(Math.random() * 69), "its a test", "test"],
+	["Test #" + Math.floor(Math.random() * 69), "its a test", "test"],
+	["Test #" + Math.floor(Math.random() * 69), "its a test", "test"],
+	["Test #" + Math.floor(Math.random() * 69), "its a test", "test"],
+	["Test #" + Math.floor(Math.random() * 69), "its a test", "test"],
+	["Test #" + Math.floor(Math.random() * 69), "its a test", "test"],
+	["Test #" + Math.floor(Math.random() * 69), "its a test", "test"],
+	["Test #" + Math.floor(Math.random() * 69), "its a test", "test"],
+	["Test #" + Math.floor(Math.random() * 69), "its a test", "test"],
+	["Test #" + Math.floor(Math.random() * 69), "its a test", "test"],
+	["Test #" + Math.floor(Math.random() * 69), "its a test", "test"],
+	["Test #" + Math.floor(Math.random() * 69), "its a test", "test"],
+	["Test #" + Math.floor(Math.random() * 69), "its a test", "test"],
+	["Test #" + Math.floor(Math.random() * 69), "its a test", "test"],
+	["Test #" + Math.floor(Math.random() * 69), "its a test", "test"],
+	["Test #" + Math.floor(Math.random() * 69), "its a test", "test"],
+	["Test #" + Math.floor(Math.random() * 69), "its a test", "test"],
+	["Test #" + Math.floor(Math.random() * 69), "its a test", "test"],
+];
 ---
 
 <Layout title="JSPM">
 	<main class="max-w-3xl m-auto p-6">
-		<h1 class="text-5xl font-extrabold m-0 text-center">
+		<h1 class="text-4xl font-extrabold m-0 text-center">
 			<span class="bg-gradient-to-tr from-accent via-subaccent text-transparent bg-clip-text">JSPM</span> - JsScripts Package Manager
 		</h1>
 		<p class="leading-relaxed my-4 mx-0 dark:bg-slate-800 bg-slate-200 dark:text-white text-black p-4 rounded-lg border-accent border-2 text-center">
 			Quick access to scripts and libraries!
 		</p>
 	</main>
+	<SearchBar/>
 	<CardContainer cols="1">
-		<ScriptCard
-			name="ConfigLib"
-			description="A simple library for creating a .json config file for your script."
-			identifier="configlib"
-			type="library"
-		/>
-		<ScriptCard
-			name="/shrug"
-			description="Adds a /shrug <msg> command ¯\\_(ツ)_/¯"
-			identifier="shrug"
-			type="feature"
-		/>
+		{
+			scripts.map((script) => (
+				<ScriptCard
+					name={script[0]}
+					description={script[1]}
+					identifier={script[2]}
+					type="feature"
+				/>
+			))
+		}
 	</CardContainer>
 </Layout>

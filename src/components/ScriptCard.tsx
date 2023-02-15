@@ -10,7 +10,7 @@ export interface Props {
 export default function ScriptCard({ name, description, identifier, type }: Props) {
 
 	return (
-		<div class="w-full sm:w-1/2 md:w-1/4 flex flex-col p-3 cursor-pointer">
+		<div class="w-[80%] sm:w-1/2 md:w-1/5 flex flex-col cursor-pointer">
 			<div class="dark:bg-slate-600 bg-slate-100 rounded-lg shadow-lg overflow-hidden flex-1 flex flex-col">
 				<div class="p-4 flex-1 flex flex-col" style="">
 					<h1 class="mb-2 text-md font-bold">{name}</h1>
